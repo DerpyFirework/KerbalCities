@@ -136,14 +136,13 @@ namespace KerbalCities
                     CommNet.CommNetHome cNetHome = cityObject.AddComponent<CommNet.CommNetHome>();
 
                     // set the internal name
-                    cNetHome.nodeName = body.name + ": " + cityObject.name;
+                    cNetHome.nodeName = cityObject.name;
 
                     // get the values from the config
-                    // body.GetDisplayName() is returning the value with ^N appended for some reason
                     if (commNet.HasValue("nodeName"))
-                        cNetHome.displaynodeName = body.GetDisplayName() + ": " + commNet.GetValue("nodeName");
+                        cNetHome.displaynodeName = commNet.GetValue("nodeName");
                     else
-                        cNetHome.displaynodeName = body.GetDisplayName() + ": " + pqsCity.displayobjectName;
+                        cNetHome.displaynodeName = pqsCity.displayobjectName;
                     if (commNet.HasValue("antennaPower"))
                         cNetHome.antennaPower = double.Parse(commNet.GetValue("antennaPower"));
                     if (commNet.HasValue("isKSC"))
